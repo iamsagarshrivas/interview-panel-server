@@ -14,6 +14,11 @@ module.exports = {
         })
     },
 
+    sendEmail: (req, res) => {
+        
+
+    },
+
     getInterviewerById: (req, res) => {
         interviewer.find({ _id: req.params._id }, (err, interviewers) => {
             if (err) {
