@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const otpSchema = mongoose.Schema({
-    user_id:String,
+    user_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
     otp:Number,
     verified:Boolean,
     expiryTime:{

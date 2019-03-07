@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const candidateDetailSchema=mongoose.Schema(
 {
-  jobId:[String],
+  jobId:[mongoose.Schema.Types.ObjectId],
   basicInfo:{
     candidateName:String,
     candidateEmail:String,
@@ -89,6 +89,9 @@ const candidateDetailSchema=mongoose.Schema(
   otpVerified:{
     type:Boolean,
     default:false
+  },
+  _id:{
+    type:mongoose.Schema.Types.ObjectId,
   }
 });
 

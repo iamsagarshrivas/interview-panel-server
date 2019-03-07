@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const path=require('path');
 const config = require('../config/main');
 const pincode = require('../models/pincode');
 
@@ -49,5 +50,14 @@ module.exports = {
             }
         })
 
+    },
+
+    getFile : (req,res)=>{
+        console.log('filename:',req.params.file_name);
+        let publicDir = path.resolve(`${__dirname}/../uploads`);
+        console.log(publicDir);
+        
+        res.sendFile(publicDir+'/'+req.params.file_name);
+        
     }
 }

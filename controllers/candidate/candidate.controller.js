@@ -20,7 +20,7 @@ module.exports = {
       }
       else {
         if (result != null) {
-          if (new Date().now() - result.sendTime > result.expiryTime) {
+          if (new Date().getTime() - result.sendTime > result.expiryTime) {
             res.json({ verified: false, msg: 'otp expired' })
           }
           else {
@@ -151,6 +151,10 @@ module.exports = {
             phoneNumber: req.body.referralDetails.phoneNumber,
             email: req.body.referralDetails.email,
             designation: req.body.referralDetails.designation
+          },
+          uploadDocuments:{
+            resumeFile:req.body.uploadDocuments.resumeFile,
+            videoResumeFile:req.body.uploadDocuments.videoResumeFile
           },
           otpVerified: false
         });

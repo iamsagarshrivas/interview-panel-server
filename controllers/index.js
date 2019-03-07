@@ -14,6 +14,7 @@ router.use('/schedule',scheduleRouter);
 router.use('/login',userRouter);
 router.use('/user',userRouter);
 
+router.get('/get-file/:file_name',mainController.getFile);
 router.get('/authenticate',mainController.verifyToken,mainController.autheticateUser);
 router.get('/pincode/:pincode',mainController.getPincodeData)
 

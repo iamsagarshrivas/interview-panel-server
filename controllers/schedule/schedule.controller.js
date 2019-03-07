@@ -4,7 +4,11 @@ var job = require('../../models/post_job');
 
 module.exports = {
     getAllSchedule: (req, res) => {
-        schedule.find({}, (err, schedules) => {
+        schedule.find({},{result:true,interview_type:true,schedule_date:true})
+        .populate('candidate_id',{basicInfo:true})
+        .populate('interviewer_id',{name:true})
+        .populate('job_id',{isActive:true,jobTitle:true})
+        .exec( (err, schedules) => {
             if (err) {
                 res.json({ "msg": "cannot get data", "getData": false })
             }
@@ -35,6 +39,19 @@ module.exports = {
             }
             else {
                 res.json({ result });
+            }
+        })
+    },
+    getScheduleByInterviewerId:(req,res)=>{        
+        schedule.find({interviewer_id : req.params.interviewer_id})
+        .populate('candidate_id',{basicInfo:true,_id:true})
+        .exec((err,response)=>{
+            if(err){
+                res.json({err:err,getData:false});
+            }
+            else{
+                res.json({response})
+                //res.json({candidateName:response[0].candidate_id.basicInfo.candidateName,candidateEmail:response.candidate_id.basicInfo.candidateEmail});
             }
         })
     },

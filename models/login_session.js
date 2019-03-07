@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const loginSessionSchema = mongoose.Schema(
     {
-        id:String,
+        _id:mongoose.Schema.Types.ObjectId,
         email:String,
         last_login_time:Date,
         login_count:Number,

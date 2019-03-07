@@ -2,10 +2,19 @@ const mongoose = require('mongoose');
 
 const scheduleInterviewSchema = mongoose.Schema(
     {
-        candidate_id: String,
-        job_id: String,
-        interviewer_id: String,
-        schedule_date: Date,
+        candidate_id:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'candidate'
+        },
+        job_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'job'
+        },
+        interviewer_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'interviewer'
+        },
+        schedule_date: String,
         schedule_time: String,
         interview_type: String,
         interview_level: String,

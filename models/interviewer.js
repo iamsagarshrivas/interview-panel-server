@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const interviewerSchema= mongoose.Schema(
     {
-        _id:String,
+        _id:mongoose.Schema.Types.ObjectId,
         email:String,
         name:String,
         mobile:Number,
