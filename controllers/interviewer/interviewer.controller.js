@@ -2,7 +2,6 @@ const user = require('../../models/user');
 const interviewer = require("../../models/interviewer");
 const schedule = require('../../models/schedule_interview');
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey('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');
 
 module.exports = {
 
