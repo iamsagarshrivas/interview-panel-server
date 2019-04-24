@@ -45,7 +45,7 @@ mongoose.connection.on('error', (err) => {
 
 app.use(route);
 
-const port = 3000;
+const port = process.env.PORT;
 
 app.listen(port,
   () => {
