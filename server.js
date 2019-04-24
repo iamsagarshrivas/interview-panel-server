@@ -43,8 +43,10 @@ mongoose.connection.on('error', (err) => {
   }
 });
 
-app.use(route);
-
+//app.use(route);
+app.get('/',(req,res)=>{
+  res.send("helllo  kk");
+})
 const port = process.env.PORT;
 
 app.listen(port,
